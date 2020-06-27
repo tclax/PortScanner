@@ -100,7 +100,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\SFML-2.5.1-windows-vc15-32-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y $(SolutionDir)Dependencies\SFML-2.5.1-windows-vc15-32-bit\SFML-2.5.1\bin $(TargetDir)</Command>
+      <Command>xcopy /Y $(SolutionDir)Dependencies\SFML-2.5.1-windows-vc15-32-bit\SFML-2.5.1\binary $(TargetDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -146,7 +146,7 @@
       <AdditionalLibraryDirectories>$(SolutionDir)Dependencies\SFML-2.5.1-windows-vc15-32-bit\SFML-2.5.1\lib</AdditionalLibraryDirectories>
     </Link>
     <PostBuildEvent>
-      <Command>xcopy /Y $(SolutionDir)Dependencies\SFML-2.5.1-windows-vc15-32-bit\SFML-2.5.1\bin $(TargetDir)</Command>
+      <Command>xcopy /Y $(SolutionDir)Dependencies\SFML-2.5.1-windows-vc15-32-bit\SFML-2.5.1\binary $(TargetDir)</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
