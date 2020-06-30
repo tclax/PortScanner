@@ -6,11 +6,12 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include "PortScanner.h"
 
 //Checks if the port at the address is open
 //In: Address, port
 //Out: true if open, false if anything else
-static bool port_is_open(const std::string& address, int port)
+bool PortScanner::port_is_open(const std::string& address, int port)
 {
 	return (sf::TcpSocket().connect(address, port) == sf::Socket::Done);
 }
@@ -18,7 +19,7 @@ static bool port_is_open(const std::string& address, int port)
 //Splits string 
 //In: string to split, delimiter to split on, flag to allow 
 //Out: List of strings 
-static std::vector<std::string> split(const std::string & string, char delimiter = ' ', bool allow_empty = false)
+std::vector<std::string> PortScanner::split(const std::string & string, char delimiter, bool allow_empty)
 {
 	std::vector<std::string> tokens;
 	std::stringstream sstream(string);
@@ -31,11 +32,10 @@ static std::vector<std::string> split(const std::string & string, char delimiter
 	return tokens;
 }
 
-
 //Converts string to int
 //In: string numerical value
 //Out: converted integer
-static int string_to_int(const std::string & string)
+int PortScanner::string_to_int(const std::string & string)
 {
 	std::stringstream sstream(string);
 	int i;
@@ -47,7 +47,7 @@ static int string_to_int(const std::string & string)
 //In: objects A and B
 //Out: objects B and A
 template <typename T>
-static void swaper(T & a, T & b)
+static void PortScanner::swaper(T & a, T & b)
 {
 	T c = a;
 	a = b;
@@ -56,7 +56,7 @@ static void swaper(T & a, T & b)
 
 //
 template <typename T>
-static std::vector<T> range(T min, T max)
+static std::vector<T> PortScanner::range(T min, T max)
 {
 	if (min > max)
 		swaper(min, max);
@@ -72,7 +72,7 @@ static std::vector<T> range(T min, T max)
 //Sorts port list in ascending order
 //In: delimited string to be split and ordered
 //Out: list of integers representing ports
-static std::vector<int> parse_ports_list(const std::string & list)
+std::vector<int> PortScanner::parse_ports_list(const std::string & list)
 {
 	std::vector<int> ports;
 	for (const std::string& token : split(list, ',')) {
@@ -97,31 +97,4 @@ static std::vector<int> parse_ports_list(const std::string & list)
 		}
 	}
 	return ports;
-}
-
-int main()
-{
-	std::string address;
-	std::string port_list;
-	std::vector<int> ports;
-	int open_ports_count = 0;
-	std::cout << "Address: " << std::flush;
-	std::getline(std::cin, address);
-	std::cout << "Port: " << std::flush;
-	std::getline(std::cin, port_list);
-	ports = parse_ports_list(port_list);
-	std::cout << "Scanning " << address << "...\n";
-	for (int port : ports) {
-		std::cout << "Port " << port << " : ";
-		if (port_is_open(address, port))
-		{
-			std::cout << "OPEN\n";
-			open_ports_count++;
-		}
-		else
-			std::cout << "CLOSED\n";
-	}
-	std::cout << open_ports_count << " open ports" << std::flush;
-	std::cout << std::flush;
-	return 0;
 }

@@ -176,6 +176,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="PortScanner.cpp" />
+    <ClCompile Include="PortScannerConsole.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PortScanner.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
