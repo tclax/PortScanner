@@ -1,4 +1,3 @@
-// Turtorial.cpp : This file contains the 'main' function. Program execution begins and ends there.
 // Reference to this exercise: http://www.cplusplus.com/articles/o2N36Up4/
 
 #include <iostream>
@@ -54,7 +53,9 @@ void PortScanner::swaper(T & a, T & b)
 	b = c;
 }
 
-//
+//Calls the swapper if the min is greater than the max. Gets the range of the two values inserted
+//In: Object min, Object max to swap if min is greater than max
+//Out: vector of the range between the two values
 template <typename T>
 std::vector<T> PortScanner::range(T min, T max)
 {

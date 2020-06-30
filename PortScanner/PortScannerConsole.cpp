@@ -1,4 +1,3 @@
-// Turtorial.cpp : This file contains the 'main' function. Program execution begins and ends there.
 // Reference to this exercise: http://www.cplusplus.com/articles/o2N36Up4/
 
 #include <iostream>
