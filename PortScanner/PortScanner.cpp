@@ -47,7 +47,7 @@ int PortScanner::string_to_int(const std::string & string)
 //In: objects A and B
 //Out: objects B and A
 template <typename T>
-static void PortScanner::swaper(T & a, T & b)
+void PortScanner::swaper(T & a, T & b)
 {
 	T c = a;
 	a = b;
@@ -56,7 +56,7 @@ static void PortScanner::swaper(T & a, T & b)
 
 //
 template <typename T>
-static std::vector<T> PortScanner::range(T min, T max)
+std::vector<T> PortScanner::range(T min, T max)
 {
 	if (min > max)
 		swaper(min, max);
